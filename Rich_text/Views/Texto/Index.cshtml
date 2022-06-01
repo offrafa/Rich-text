@@ -1,0 +1,67 @@
+﻿@model List<TextoModel>
+
+    <link rel="stylesheet" href="~/css/Tabela.css" />
+
+
+
+<br>
+@if(TempData["MensagemSucesso"] != null){
+
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="clase">X</button>
+        @TempData"["MensagemSucesso"]
+    </div>
+}
+
+@if(TempData["MensagemErro"] != null){
+
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="clase">X</button>
+        @TempData"["MensagemErro"]
+    </div>
+}
+<br>
+
+
+
+<div class="container">
+    <h1>Listagem de documentos</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Data De Alteração</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model != null && Model.Any()){
+            
+            foreach(var texto in Model){
+
+                <tr>
+                    <th scope="row">@texto.Id</th>
+                    <td>@texto.Titulo</td>
+                    <td>@texto.Descricacao</td>
+                    <td>@texto.DataDeAlteracao</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a role="button" asp-action="Editar" asp-controller="Texto" asp-route-id="@texto.Id" class="editar">Editar</a>
+                            <a role="button" asp-action="ApagarConfirmacao" asp-controller="Texto" asp-route-id="@texto.Id" class="apagar">Apagar</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        }
+        else{
+            <tr class="odd"><td valign="top" colspan="5">Nenhum usuario encontrado</td></tr>
+        }
+
+                <a class="button" asp-controller="Texto" asp-action="criar" role="button">Criar</a>
+
+    </tbody>
+
+</table>
+</div>

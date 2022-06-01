@@ -1,0 +1,27 @@
+﻿@model LoginModel
+
+@{
+    Layout = "_LayoutDeslogado";
+}
+
+
+
+<div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+
+    <form form asp-controller="Login" asp-action="Entrar" method="post">
+        <h3>Login</h3>
+
+        <label for="login" class="form-label">Login</label>
+            <input type="text" asp-for="Login"  id="login">
+            @Html.ValidationMessageFor(x => x.Login)
+
+        <label for="senha" class="form-label">Senha</label>
+            <input type="password" asp-for="Senha" id="senha">
+             @Html.ValidationMessageFor(x => x.Senha)
+
+        <button type="submit">Enter</button>   
+    </form>
