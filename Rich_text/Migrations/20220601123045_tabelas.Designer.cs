@@ -10,8 +10,8 @@ using Rich_text.Data;
 namespace Rich_text.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    [Migration("20220522185353_CriacaoTabelaUsuario")]
-    partial class CriacaoTabelaUsuario
+    [Migration("20220601123045_tabelas")]
+    partial class tabelas
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,27 @@ namespace Rich_text.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Rich_text.Models.TextoModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DataDeAlteracao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Descricacao")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Titulo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Textos");
+                });
 
             modelBuilder.Entity("Rich_text.Models.UsuarioModel", b =>
                 {
@@ -50,6 +71,7 @@ namespace Rich_text.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Senha")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
