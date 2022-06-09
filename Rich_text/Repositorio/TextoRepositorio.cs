@@ -43,6 +43,7 @@ namespace Rich_text.Repositorio
 
             textoDB.Titulo = texto.Titulo;
             textoDB.Descricacao = texto.Descricacao;
+
             textoDB.DataDeAlteracao = DateTime.Now;
 
 

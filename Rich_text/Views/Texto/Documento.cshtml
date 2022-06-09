@@ -1,9 +1,18 @@
-﻿
+﻿    @model TextoModel
+
+
 	<div class="janela">  
-		<main class="janela-principal">
+		
 
 			
-			<div class="janela-principal-header">  <!-- Apenas a header que fica no topo -->
+
+
+
+			  <!-- Essa parte é os icone -->
+				<form class="editor">
+
+
+				<div class="janela-principal-header">  <!-- Apenas a header que fica no topo -->
 				<ol class="opcao-top">
 					<li class="opcao-top-item"><a href="#">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,10 +55,6 @@
 					</button>
 				</div>
 			</div>
-
-
-			<div class="janela-principal-body">  <!-- Essa parte é os icone -->
-				<form class="editor">
 					<div class="editor-barra">
 						<button class="editor-barra-item icone">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -225,7 +230,6 @@
 
 
 					<div class="area-para-editar">  <!-- Essa é a parte de edição que poderá trocar por um imput -->
-						<div class="area-para-editar-ativado" contenteditable spellcheck="false">
 							<h1></h1>
 							<p></p>
 							<p><img  /><em></em><strong></strong></p>
@@ -241,11 +245,9 @@
 	
 							<p></p>
 							<p></p>
-						</div>
 					</div>
 
 
 			</form>				
 			</div>
-		</main>
-	</div>
+	

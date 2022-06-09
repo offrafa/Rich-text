@@ -10,6 +10,8 @@ namespace Rich_text.Models
 
         public string Descricacao { get; set; }
 
+        public string Documento { get; set; }
+
         public DateTime DataDeAlteracao { get; set; }
     }
 }

@@ -1,0 +1,10 @@
+﻿@model TextoModel
+
+
+<div class="text-center">
+    <h3>Realmente deseja apagar o usuário(@Model.Titulo)?</h3>
+</div>
+
+<a class="btn btn-primary btn-block" asp-action="Index" asp-controller="Texto" role="button">Cancelar Exclusão</a>
+<a class="btn btn-danger btn-block" asp-action="Apagar" asp-controller="Texto" asp-route-id="@Model.Id" role="button">Confirmar exclusão</a>
+
