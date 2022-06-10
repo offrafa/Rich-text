@@ -20,6 +20,7 @@ namespace Rich_text.Repositorio
         {
             texto.DataDeAlteracao = DateTime.Now;
             _context.Textos.Add(texto);
+
             _context.SaveChanges();
             return texto;
         }
@@ -43,7 +44,7 @@ namespace Rich_text.Repositorio
 
             textoDB.Titulo = texto.Titulo;
             textoDB.Descricacao = texto.Descricacao;
-
+            textoDB.Documento = texto.Documento;
             textoDB.DataDeAlteracao = DateTime.Now;
 
 

@@ -10,8 +10,8 @@ using Rich_text.Data;
 namespace Rich_text.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    [Migration("20220608154619_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220609130522_Inicio")]
+    partial class Inicio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

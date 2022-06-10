@@ -8,7 +8,7 @@
 
 
 			<div class="janela-principal-body">  <!-- Essa parte é os icone -->
-				<form asp-controller="Texto" class="editor" asp-action="Criar" method="post">
+				<form asp-controller="Texto" class="editor" asp-action="Editar" method="post">
 
 
 			<div class="janela-principal-header">  <!-- Apenas a header que fica no topo -->
@@ -32,6 +32,9 @@
 						</svg>
 						<input type="text" asp-for="Descricacao"  class="form-control" placeholder="Descrição">
 						@Html.ValidationMessageFor(x => x.Descricacao)
+
+
+					
 					</li>
 				</ol>
 			<div>
@@ -241,9 +244,6 @@
 							<textarea type="text" asp-for="Documento" class="Editando"></textarea>
 
 					</div>
-
-
-
 				</div>
 			</form>				
 			</div>

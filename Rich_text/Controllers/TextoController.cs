@@ -24,6 +24,35 @@ namespace Rich_text.Controllers
         }
 
 
+        public IActionResult Criar()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult Criar(TextoModel texto)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    texto = _textoRepositorio.Adicionar(texto);
+
+                    TempData["MensagemSucesso"] = "Usuário cadastrado com sucesso!";
+                    return RedirectToAction("Index");
+                }
+                return View(texto);
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não conseguimos cadastrar o seu usuário, tente novamente, detalhe do erro: {erro.Message}";
+                return View(texto);
+            }
+        }
+
+
+
         public IActionResult ApagarConfirmacao(int id)
         {
             TextoModel texto = _textoRepositorio.BuacarPorId(id);
@@ -47,32 +76,45 @@ namespace Rich_text.Controllers
         }
 
 
-        public IActionResult Criar()
+       
+        public IActionResult Editar(int id)
         {
-            return View();
+            TextoModel texto = _textoRepositorio.BuacarPorId(id);
+            return View(texto);
         }
 
-
         [HttpPost]
-        public IActionResult Criar(TextoModel texto)
+        public IActionResult Editar(TextoModel textoModel)
         {
             try
             {
+                TextoModel texto = null;
+
                 if (ModelState.IsValid)
                 {
-                    texto = _textoRepositorio.Adicionar(texto);
+                    texto = new TextoModel()
+                    {
+                        Id = textoModel.Id,
+                        Titulo = textoModel.Titulo,
+                        Descricacao = textoModel.Descricacao,
+                        Documento = textoModel.Documento,
 
-                    TempData["MensagemSucesso"] = "Usuário cadastrado com sucesso!";
-                    return RedirectToAction("Criar");
+                    };
+
+                    texto = _textoRepositorio.Atualizar(texto);
+                    TempData["MensagemSucesso"] = "Usuario alterado com sucesso";
+                    return RedirectToAction("Editar");
                 }
                 return View(texto);
             }
             catch (Exception erro)
             {
-                TempData["MensagemErro"] = $"Ops, não conseguimos cadastrar o seu usuário, tente novamente, detalhe do erro: {erro.Message}";
-                return View(texto);
+                TempData["MensagemErro"] = $"Ops, não apagar alterar seu usuario, tente novamente, detalhes do erro: {erro.Message}";
+                return RedirectToAction("Index");
             }
         }
+
+
 
         public IActionResult Documento()
         {
