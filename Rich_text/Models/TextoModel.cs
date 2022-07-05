@@ -13,5 +13,6 @@ namespace Rich_text.Models
         public string Documento { get; set; }
 
         public DateTime DataDeAlteracao { get; set; }
+
     }
 }

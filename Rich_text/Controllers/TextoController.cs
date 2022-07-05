@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Rich_text.Models;
 using Rich_text.Repositorio;
 using System;
@@ -8,6 +9,8 @@ namespace Rich_text.Controllers
 {
     public class TextoController : Controller
     {
+
+
         private readonly ITextoRepositorio _textoRepositorio;
 
         public TextoController(ITextoRepositorio textoRepositorio)
@@ -15,13 +18,28 @@ namespace Rich_text.Controllers
             _textoRepositorio = textoRepositorio;
         }
 
-        public IActionResult Index()
+        
+        
+
+        public IActionResult Index(int id)
         {
+            string sessaoUsuario = HttpContext.Session.GetString("sessaoUsuarioLogado");
+
+            sessaoUsuario.Substring(sessaoUsuario.Length - id);
+
             List<TextoModel> textos = _textoRepositorio.BucarTodos();
 
 
             return View(textos);
         }
+
+
+
+
+
+
+
+
 
 
         public IActionResult Criar()

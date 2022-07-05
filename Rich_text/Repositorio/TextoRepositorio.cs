@@ -47,7 +47,6 @@ namespace Rich_text.Repositorio
             textoDB.Documento = texto.Documento;
             textoDB.DataDeAlteracao = DateTime.Now;
 
-
             _context.Textos.Update(textoDB);
             _context.SaveChanges();
 
@@ -59,9 +58,19 @@ namespace Rich_text.Repositorio
             return _context.Textos.FirstOrDefault(x => x.Id == id);
         }
 
+        
+
         public List<TextoModel> BucarTodos()
         {
             return _context.Textos.ToList();
         }
+
+        
+         public List<TextoModel> BucarPorUsuario(int id)
+        {
+            return _context.Textos.Where(x => x.Id == id).ToList();
+        }
+
+        
     }
 }
