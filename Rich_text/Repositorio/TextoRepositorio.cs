@@ -41,11 +41,12 @@ namespace Rich_text.Repositorio
             TextoModel textoDB = BuacarPorId(texto.Id);
 
             if (textoDB == null) throw new Exception("Houve um erro ao atualizar o Usuário.");
-
+            textoDB.Id = texto.Id;
             textoDB.Titulo = texto.Titulo;
             textoDB.Descricacao = texto.Descricacao;
             textoDB.Documento = texto.Documento;
-            textoDB.DataDeAlteracao = DateTime.Now;
+            //textoDB.Data = DateTime.Now;
+            textoDB.UsuarioId = texto.UsuarioId;
 
             _context.Textos.Update(textoDB);
             _context.SaveChanges();
@@ -71,6 +72,9 @@ namespace Rich_text.Repositorio
             return _context.Textos.Where(x => x.Id == id).ToList();
         }
 
-        
+        public List<TextoModel> BucarPorUsuarioId(int id)
+        {
+            return _context.Textos.Where(x => x.UsuarioId == id).ToList();
+        }
     }
 }

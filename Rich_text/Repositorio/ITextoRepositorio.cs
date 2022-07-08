@@ -7,6 +7,7 @@ namespace Rich_text.Repositorio
     {
         List<TextoModel> BucarTodos();
         List<TextoModel> BucarPorUsuario(int id);
+        List<TextoModel> BucarPorUsuarioId(int id);
         TextoModel BuacarPorId(int id);
         TextoModel Adicionar(TextoModel texto);
         TextoModel Atualizar(TextoModel texto);

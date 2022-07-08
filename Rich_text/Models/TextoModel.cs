@@ -4,6 +4,8 @@ namespace Rich_text.Models
 {
     public class TextoModel
     {
+     
+
         public int Id { get; set; }
 
         public string Titulo { get; set; }
@@ -12,7 +14,10 @@ namespace Rich_text.Models
 
         public string Documento { get; set; }
 
-        public DateTime DataDeAlteracao { get; set; }
+        public DateTime? DataDeAlteracao { get; set; }
+
+        public int UsuarioId { get; set; }
+
 
     }
 }

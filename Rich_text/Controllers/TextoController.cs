@@ -23,11 +23,11 @@ namespace Rich_text.Controllers
 
         public IActionResult Index(int id)
         {
-            string sessaoUsuario = HttpContext.Session.GetString("sessaoUsuarioLogado");
+            //string sessaoUsuario = HttpContext.Session.GetString("sessaoUsuarioLogado");
 
-            sessaoUsuario.Substring(sessaoUsuario.Length - id);
+            //sessaoUsuario.Substring(sessaoUsuario.Length - id);
 
-            List<TextoModel> textos = _textoRepositorio.BucarTodos();
+            List<TextoModel> textos = _textoRepositorio.BucarPorUsuarioId(2);
 
 
             return View(textos);
