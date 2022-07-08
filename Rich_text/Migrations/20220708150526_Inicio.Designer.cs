@@ -10,7 +10,7 @@ using Rich_text.Data;
 namespace Rich_text.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    [Migration("20220707220102_Inicio")]
+    [Migration("20220708150526_Inicio")]
     partial class Inicio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,7 +28,7 @@ namespace Rich_text.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("Data")
+                    b.Property<DateTime?>("DataDeAlteracao")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Descricacao")

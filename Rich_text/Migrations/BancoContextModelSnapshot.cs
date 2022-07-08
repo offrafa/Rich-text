@@ -26,7 +26,7 @@ namespace Rich_text.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("Data")
+                    b.Property<DateTime?>("DataDeAlteracao")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Descricacao")

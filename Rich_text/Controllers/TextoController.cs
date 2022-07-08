@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Rich_text.Models;
 using Rich_text.Repositorio;
 using System;
@@ -9,8 +10,6 @@ namespace Rich_text.Controllers
 {
     public class TextoController : Controller
     {
-
-
         private readonly ITextoRepositorio _textoRepositorio;
 
         public TextoController(ITextoRepositorio textoRepositorio)
@@ -23,23 +22,13 @@ namespace Rich_text.Controllers
 
         public IActionResult Index(int id)
         {
-            //string sessaoUsuario = HttpContext.Session.GetString("sessaoUsuarioLogado");
+            List<TextoModel> textos;
+            textos = _textoRepositorio.BucarPorUsuarioId(id);
 
-            //sessaoUsuario.Substring(sessaoUsuario.Length - id);
-
-            List<TextoModel> textos = _textoRepositorio.BucarPorUsuarioId(2);
 
 
             return View(textos);
         }
-
-
-
-
-
-
-
-
 
 
         public IActionResult Criar()
@@ -47,25 +36,38 @@ namespace Rich_text.Controllers
             return View();
         }
 
-
         [HttpPost]
-        public IActionResult Criar(TextoModel texto)
+        public IActionResult Criar(TextoModel dados)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    texto = _textoRepositorio.Adicionar(texto);
+                    //Recuperando o usuario logado 
+
+                    #region buscando usuario da session  
+                    
+                    string sessaoUsuario = HttpContext.Session.GetString("sessaoUsuarioLogado");
+
+                    if (string.IsNullOrEmpty(sessaoUsuario)) return null;
+
+                    UsuarioModel usuario = JsonConvert.DeserializeObject<UsuarioModel>(sessaoUsuario);
+
+                    #endregion 
+
+                    dados.UsuarioId = usuario.Id;
+
+                    dados = _textoRepositorio.Adicionar(dados);
 
                     TempData["MensagemSucesso"] = "Usuário cadastrado com sucesso!";
                     return RedirectToAction("Index");
                 }
-                return View(texto);
+                return View(dados);
             }
             catch (Exception erro)
             {
                 TempData["MensagemErro"] = $"Ops, não conseguimos cadastrar o seu usuário, tente novamente, detalhe do erro: {erro.Message}";
-                return View(texto);
+                return View(dados);
             }
         }
 
