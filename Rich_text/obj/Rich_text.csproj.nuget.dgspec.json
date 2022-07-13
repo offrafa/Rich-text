@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HF-NTB-04\\Documents\\Projetos\\2022\\Rich_text\\Rich_text.csproj": {}
+    "C:\\Users\\rafae\\Área de Trabalho\\Rich_text\\Rich-text\\Rich_text\\Rich_text.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HF-NTB-04\\Documents\\Projetos\\2022\\Rich_text\\Rich_text.csproj": {
+    "C:\\Users\\rafae\\Área de Trabalho\\Rich_text\\Rich-text\\Rich_text\\Rich_text.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HF-NTB-04\\Documents\\Projetos\\2022\\Rich_text\\Rich_text.csproj",
+        "projectUniqueName": "C:\\Users\\rafae\\Área de Trabalho\\Rich_text\\Rich-text\\Rich_text\\Rich_text.csproj",
         "projectName": "Rich_text",
-        "projectPath": "C:\\Users\\HF-NTB-04\\Documents\\Projetos\\2022\\Rich_text\\Rich_text.csproj",
-        "packagesPath": "C:\\Users\\HF-NTB-04\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HF-NTB-04\\Documents\\Projetos\\2022\\Rich_text\\obj\\",
+        "projectPath": "C:\\Users\\rafae\\Área de Trabalho\\Rich_text\\Rich-text\\Rich_text\\Rich_text.csproj",
+        "packagesPath": "C:\\Users\\rafae\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rafae\\Área de Trabalho\\Rich_text\\Rich-text\\Rich_text\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\HF-NTB-04\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\rafae\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -91,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
