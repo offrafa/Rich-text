@@ -23,7 +23,7 @@ namespace Rich_text.Controllers
         public IActionResult Index(int id)
         {
             List<TextoModel> textos;
-            textos = _textoRepositorio.BucarPorUsuarioId(id);
+            textos = _textoRepositorio.BucarTodos();
 
 
 
@@ -116,7 +116,7 @@ namespace Rich_text.Controllers
                     {
                         Id = textoModel.Id,
                         Titulo = textoModel.Titulo,
-                        Descricacao = textoModel.Descricacao,
+                        //Descricacao = textoModel.Descricacao,
                         Documento = textoModel.Documento,
 
                     };
@@ -136,9 +136,39 @@ namespace Rich_text.Controllers
 
 
 
-        public IActionResult Documento()
+        public IActionResult Visualizar(int id)
         {
-            return View();
+            TextoModel texto = _textoRepositorio.BuacarPorId(id);
+            return View(texto);
+        }
+
+        [HttpPost]
+        public IActionResult Visualizar(TextoModel textoModel)
+        {
+            try
+            {
+                TextoModel texto = null;
+
+                if (ModelState.IsValid)
+                {
+                    texto = new TextoModel()
+                    {
+                        Id = textoModel.Id,
+                        Titulo = textoModel.Titulo,
+                        Documento = textoModel.Documento,
+
+                    };
+
+                    
+                    return RedirectToAction("Index");
+                }
+                return View(texto);
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não apagar alterar seu usuario, tente novamente, detalhes do erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
         }
 
 

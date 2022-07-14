@@ -6500,11 +6500,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rafae\\Área de Trabalho\\Nova pasta\\Rich-text\\Rich_text\\Rich_text.csproj",
+      "projectUniqueName": "C:\\Users\\rafae\\Documents\\ALURA\\Editor-Texto-com-formata-o-Rich-text\\Rich-text\\Rich_text\\Rich_text.csproj",
       "projectName": "Rich_text",
-      "projectPath": "C:\\Users\\rafae\\Área de Trabalho\\Nova pasta\\Rich-text\\Rich_text\\Rich_text.csproj",
+      "projectPath": "C:\\Users\\rafae\\Documents\\ALURA\\Editor-Texto-com-formata-o-Rich-text\\Rich-text\\Rich_text\\Rich_text.csproj",
       "packagesPath": "C:\\Users\\rafae\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rafae\\Área de Trabalho\\Nova pasta\\Rich-text\\Rich_text\\obj\\",
+      "outputPath": "C:\\Users\\rafae\\Documents\\ALURA\\Editor-Texto-com-formata-o-Rich-text\\Rich-text\\Rich_text\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\rafae\\AppData\\Roaming\\NuGet\\NuGet.Config"

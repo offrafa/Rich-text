@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8wFAs1iHzB1AnTSYHJwROtfMq3vmu4SO+oiP802UM9U8Xkb8Bs6htPBSW9niNqwh5Z6i4wisrQv97JYG4wBu+w==",
+  "dgSpecHash": "r63RnyYxOBNwkNx8zPeQdC5Lm9EDcdHEppIDkTPcyD4trbtdD45s2JPha3dn3iSKNPKUNVShi1tPJ8Cwx/5mbw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rafae\\Área de Trabalho\\Nova pasta\\Rich-text\\Rich_text\\Rich_text.csproj",
+  "projectFilePath": "C:\\Users\\rafae\\Documents\\ALURA\\Editor-Texto-com-formata-o-Rich-text\\Rich-text\\Rich_text\\Rich_text.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rafae\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\rafae\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.8\\microsoft.aspnet.mvc.5.2.8.nupkg.sha512",

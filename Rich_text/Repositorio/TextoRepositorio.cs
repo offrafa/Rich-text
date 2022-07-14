@@ -43,7 +43,7 @@ namespace Rich_text.Repositorio
             if (textoDB == null) throw new Exception("Houve um erro ao atualizar o Usuário.");
             textoDB.Id = texto.Id;
             textoDB.Titulo = texto.Titulo;
-            textoDB.Descricacao = texto.Descricacao;
+            //textoDB.Descricacao = texto.Descricacao;
             textoDB.Documento = texto.Documento;
             //textoDB.Data = DateTime.Now;
             textoDB.UsuarioId = texto.UsuarioId;
