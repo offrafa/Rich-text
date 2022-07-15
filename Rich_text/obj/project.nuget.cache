@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "r63RnyYxOBNwkNx8zPeQdC5Lm9EDcdHEppIDkTPcyD4trbtdD45s2JPha3dn3iSKNPKUNVShi1tPJ8Cwx/5mbw==",
+  "dgSpecHash": "iqXiEClMwtSZBaph18sNTdbgW47s8M+QO2JYfXTKFrwsSRLhofiyKjsCLqFIEVBoylHUaLWTwR4Kl9KY/dRSrw==",
   "success": true,
   "projectFilePath": "C:\\Users\\rafae\\Documents\\ALURA\\Editor-Texto-com-formata-o-Rich-text\\Rich-text\\Rich_text\\Rich_text.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\rafae\\.nuget\\packages\\awssdk\\2.3.55.2\\awssdk.2.3.55.2.nupkg.sha512",
     "C:\\Users\\rafae\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\rafae\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.8\\microsoft.aspnet.mvc.5.2.8.nupkg.sha512",
     "C:\\Users\\rafae\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.8\\microsoft.aspnet.razor.3.2.8.nupkg.sha512",
@@ -118,6 +119,16 @@
     "C:\\Users\\rafae\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'AWSSDK 2.3.55.2' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto 'net5.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "AWSSDK",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",
