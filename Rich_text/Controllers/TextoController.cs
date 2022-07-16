@@ -20,7 +20,7 @@ namespace Rich_text.Controllers
         
         
 
-        public IActionResult Index(TextoModel texto, int id)
+        public IActionResult Index(TextoModel dados)
         {
             string sessaoUsuario = HttpContext.Session.GetString("sessaoUsuarioLogado");
 
@@ -28,16 +28,14 @@ namespace Rich_text.Controllers
 
             UsuarioModel usuario = JsonConvert.DeserializeObject<UsuarioModel>(sessaoUsuario);
 
-
-            List<TextoModel> textos;
-            textos = _textoRepositorio.BucarPorUsuarioId(texto.Id);
+            dados.UsuarioId = usuario.Id;
 
 
-            texto.UsuarioId = 
-                
-            {
 
-            }
+            List<TextoModel> textos = _textoRepositorio.BucarPorUsuarioId(usuario.Id);
+
+
+           
 
             return View(textos);
 
@@ -72,11 +70,7 @@ namespace Rich_text.Controllers
 
                     dados = _textoRepositorio.Adicionar(dados);
 
-                    if(dados.Id == 1)
-                    {
-                        return RedirectToAction("https://localhost:5001/Texto?id=1");
-
-                    }
+                    
 
 
 

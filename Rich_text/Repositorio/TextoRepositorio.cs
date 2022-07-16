@@ -76,5 +76,7 @@ namespace Rich_text.Repositorio
         {
             return _context.Textos.Where(x => x.UsuarioId == id).ToList();
         }
+
+        
     }
 }
