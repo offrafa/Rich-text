@@ -18,8 +18,7 @@ namespace Rich_text.Controllers
             _sessao = sessao;
         }
 
-
-
+        
         public IActionResult Index()
         {
             if(_sessao.BuscarSessaoDoUsuario() != null) return RedirectToAction("Index", "Home");
@@ -68,6 +67,43 @@ namespace Rich_text.Controllers
             {
                 TempData["MensagemErro"] = $"Ops, não conseguimos realiza o login seu usuário, tente novamente, detalhes do erro: {erro.Message}";
                 return RedirectToAction("Index");
+            }
+        }
+
+        public IActionResult Criar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Criar(UsuarioModel usuario)
+        {
+            try
+            {
+                if(usuario.Email != usuario.Email)
+                {
+                    if (ModelState.IsValid)
+                    {
+                        usuario = _usuarioRepositorio.Adicionar(usuario);
+
+                        TempData["MensagemSucesso"] = "Usuário cadastrado com sucesso!";
+                        return RedirectToAction("Index");
+                    }
+                }
+                else
+                {
+                    TempData["msg"] = "<script>alert('Usuário já cadastrado');</script>";
+                    return RedirectToAction("Index");
+
+                }
+
+                
+                return View(usuario);
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não conseguimos cadastrar o seu usuário, tente novamente, detalhe do erro: {erro.Message}";
+                return View(usuario);
             }
         }
     }
