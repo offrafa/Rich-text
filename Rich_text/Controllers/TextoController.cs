@@ -28,20 +28,16 @@ namespace Rich_text.Controllers
 
             UsuarioModel usuario = JsonConvert.DeserializeObject<UsuarioModel>(sessaoUsuario);
 
-            dados.UsuarioId = usuario.Id;
-
-            usuario.Login = usuario.Login;
-
-            if(usuario.Login != null)
-            {
-                
-            }
-
-
 
             List<TextoModel> textos;
-            textos = _textoRepositorio.BucarTodos();
+            textos = _textoRepositorio.BucarPorUsuarioId(texto.Id);
 
+
+            texto.UsuarioId = 
+                
+            {
+
+            }
 
             return View(textos);
         }
@@ -74,7 +70,12 @@ namespace Rich_text.Controllers
 
                     dados = _textoRepositorio.Adicionar(dados);
 
-                    
+                    if(dados.Id == 1)
+                    {
+                        return RedirectToAction("https://localhost:5001/Texto?id=1");
+
+                    }
+
 
 
 
