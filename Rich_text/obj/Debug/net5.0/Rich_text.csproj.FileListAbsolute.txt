@@ -2019,3 +2019,4 @@ C:\Users\HF-NTB-04\Desktop\Rich_Text\Rich-text\Rich_text\obj\Debug\net5.0\Razor\
 =======
 C:\Users\rafae\Documents\ALURA\Editor-Texto-com-formata-o-Rich-text\Rich-text\Rich_text\obj\Debug\net5.0\Razor\Views\Login\Criar.cshtml.g.cs
 >>>>>>> fca9dfa82025278e4bb1ebc23af6399f52ac36ca
+C:\Users\HF-NTB-04\Desktop\Rich_Text\Rich-text\Rich_text\obj\Debug\net5.0\Razor\Views\Login\Criar.cshtml.g.cs
