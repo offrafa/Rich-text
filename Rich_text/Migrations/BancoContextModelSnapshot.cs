@@ -29,9 +29,6 @@ namespace Rich_text.Migrations
                     b.Property<DateTime?>("DataDeAlteracao")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Descricacao")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Documento")
                         .HasColumnType("nvarchar(max)");
 

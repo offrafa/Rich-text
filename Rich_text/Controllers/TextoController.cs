@@ -17,19 +17,34 @@ namespace Rich_text.Controllers
             _textoRepositorio = textoRepositorio;
         }
 
-        
-        
 
-        public IActionResult Index(int id)
+
+
+        public IActionResult Index(TextoModel dados)
         {
-            List<TextoModel> textos;
-            textos = _textoRepositorio.BucarPorUsuarioId(id);
+            string sessaoUsuario = HttpContext.Session.GetString("sessaoUsuarioLogado");
 
+            if (string.IsNullOrEmpty(sessaoUsuario)) return null;
+
+            UsuarioModel usuario = JsonConvert.DeserializeObject<UsuarioModel>(sessaoUsuario);
+
+            dados.UsuarioId = usuario.Id;
+
+            usuario.Login = usuario.Login;
+
+            if(usuario.Login != null)
+            {
+                
+            }
+
+
+
+            List<TextoModel> textos;
+            textos = _textoRepositorio.BucarTodos();
 
 
             return View(textos);
         }
-
 
         public IActionResult Criar()
         {
@@ -58,6 +73,10 @@ namespace Rich_text.Controllers
                     dados.UsuarioId = usuario.Id;
 
                     dados = _textoRepositorio.Adicionar(dados);
+
+                    
+
+
 
                     TempData["MensagemSucesso"] = "Usuário cadastrado com sucesso!";
                     return RedirectToAction("Index");
@@ -116,7 +135,7 @@ namespace Rich_text.Controllers
                     {
                         Id = textoModel.Id,
                         Titulo = textoModel.Titulo,
-                        Descricacao = textoModel.Descricacao,
+                        //Descricacao = textoModel.Descricacao,
                         Documento = textoModel.Documento,
 
                     };
@@ -136,9 +155,39 @@ namespace Rich_text.Controllers
 
 
 
-        public IActionResult Documento()
+        public IActionResult Visualizar(int id)
         {
-            return View();
+            TextoModel texto = _textoRepositorio.BuacarPorId(id);
+            return View(texto);
+        }
+
+        [HttpPost]
+        public IActionResult Visualizar(TextoModel textoModel)
+        {
+            try
+            {
+                TextoModel texto = null;
+
+                if (ModelState.IsValid)
+                {
+                    texto = new TextoModel()
+                    {
+                        Id = textoModel.Id,
+                        Titulo = textoModel.Titulo,
+                        Documento = textoModel.Documento,
+
+                    };
+
+                    
+                    return RedirectToAction("Index");
+                }
+                return View(texto);
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não apagar alterar seu usuario, tente novamente, detalhes do erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
         }
 
 

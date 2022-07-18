@@ -42,8 +42,13 @@
                 <section class="transfer-section">
                     <div class="transfer-section-header">
                         <h2>Ultimos Editados</h2>
+
+
+                          <a class="flat-button criar" asp-controller="Texto" asp-action="criar" role="button">Novo documento em branco</a>
+
                         
                     </div>
+
                     <div class="transfers">
                         <div class="transfer">
                             
@@ -54,26 +59,38 @@
                 <table>
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col"></th>
                             <th scope="col">Titulo</th>
-                            <th scope="col">Descrição</th>
-                            <th scope="col">Data De Alteração</th>
+                             <th scope="col">Data De Alteração</th>
                         </tr>
                     </thead>
                     <tbody>
                         @if(Model != null && Model.Any()){
                             
-                            foreach(var texto in Model){
-                
+                            foreach(var texto in Model){              
                                 <tr>
-                                    <th scope="row">@texto.Id</th>
+                                    <th scope="row">
+                                        <svg width="24" height="24"viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7 18H17V16H7V18Z" fill="currentColor" />
+                                            <path d="M17 14H7V12H17V14Z" fill="currentColor" />
+                                            <path d="M7 10H11V8H7V10Z" fill="currentColor" />
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C4.34315 2 3 3.34315 3 5V19C3 20.6569 4.34315 22 6 22H18C19.6569 22 21 20.6569 21 19V9C21 5.13401 17.866 2 14 2H6ZM6 4H13V9H19V19C19 19.5523 18.5523 20 18 20H6C5.44772 20 5 19.5523 5 19V5C5 4.44772 5.44772 4 6 4ZM15 4.10002C16.6113 4.4271 17.9413 5.52906 18.584 7H15V4.10002Z" fill="currentColor"/>
+                                        </svg> 
+                                    </th>
                                     <td>@texto.Titulo</td>
-                                    <td>@texto.Descricacao</td>
+                                    <!--<td>texto.Descricacao</td>--> 
                                     <td>@texto.DataDeAlteracao</td>
                                     <td>
                                         <div class="btn-group" role="group">
                                             <a role="button" asp-action="Editar" asp-controller="Texto" asp-route-id="@texto.Id" class="editar">Editar</a>
+
+
+
+
+                                            
                                             <a role="button" asp-action="ApagarConfirmacao" asp-controller="Texto" asp-route-id="@texto.Id" class="apagar">Apagar</a>
+                                            <a role="button" asp-action="Visualizar" asp-controller="Texto" asp-route-id="@texto.Id" class="Visualizar">Visualizar</a>
+
                                         </div>
                                     </td>
                                 </tr>
@@ -83,7 +100,6 @@
                             <tr class="odd"><td valign="top" colspan="5">Nenhum documento encontrado</td></tr>
                         }
                 
-                                <a class="button" asp-controller="Texto" asp-action="criar" role="button">Criar</a>
                 
                     </tbody>
                 
