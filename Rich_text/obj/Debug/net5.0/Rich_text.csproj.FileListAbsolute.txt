@@ -2013,4 +2013,10 @@ C:\Users\rafae\Documents\ALURA\Editor-Texto-com-formata-o-Rich-text\Rich-text\Ri
 C:\Users\rafae\Documents\ALURA\Editor-Texto-com-formata-o-Rich-text\Rich-text\Rich_text\obj\Debug\net5.0\ref\Rich_text.dll
 C:\Users\rafae\Documents\ALURA\Editor-Texto-com-formata-o-Rich-text\Rich-text\Rich_text\obj\Debug\net5.0\Razor\Views\Texto\Visualizar.cshtml.g.cs
 C:\Users\rafae\Documents\ALURA\Editor-Texto-com-formata-o-Rich-text\Rich-text\Rich_text\bin\Debug\net5.0\AWSSDK.dll
+<<<<<<< HEAD
+C:\Users\HF-NTB-04\Desktop\Rich_Text\Rich-text\Rich_text\bin\Debug\net5.0\AWSSDK.dll
+C:\Users\HF-NTB-04\Desktop\Rich_Text\Rich-text\Rich_text\obj\Debug\net5.0\Razor\Views\Texto\Visualizar.cshtml.g.cs
+=======
 C:\Users\rafae\Documents\ALURA\Editor-Texto-com-formata-o-Rich-text\Rich-text\Rich_text\obj\Debug\net5.0\Razor\Views\Login\Criar.cshtml.g.cs
+>>>>>>> fca9dfa82025278e4bb1ebc23af6399f52ac36ca
+C:\Users\HF-NTB-04\Desktop\Rich_Text\Rich-text\Rich_text\obj\Debug\net5.0\Razor\Views\Login\Criar.cshtml.g.cs

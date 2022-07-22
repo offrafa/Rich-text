@@ -81,6 +81,15 @@ namespace Rich_text
                     name: "default",
                     pattern: "{controller=Login}/{action=Index}/{id?}");
             });
+
+            app.UseEndpoints(endpoint =>
+            {
+                endpoint.MapControllerRoute( // Alterando a rota padrão
+                    name: "default",
+                    pattern: "{controller=Texto}/{action=Index}/{id?}");
+            });
+
+
         }
     }
 }

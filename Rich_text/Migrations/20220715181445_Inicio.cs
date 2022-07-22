@@ -14,7 +14,6 @@ namespace Rich_text.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Titulo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Descricacao = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Documento = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DataDeAlteracao = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UsuarioId = table.Column<int>(type: "int", nullable: false)
