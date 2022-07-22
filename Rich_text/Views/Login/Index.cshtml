@@ -13,35 +13,32 @@
 		<form  asp-controller="Login" asp-action="Criar" method="post">
 			<h1>Criar Conta</h1>
 			
-			<span>Ou use eu E-mail para se registrar</span>
 			<div class="form-group">
-        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do usuario">
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Nome">
         @Html.ValidationMessageFor(x => x.Nome)
     </div>
 
     <div class="form-group">
-      <input type="text" asp-for="Email"  class="form-control" placeholder="Digite o email do usuario">
+      <input type="text" asp-for="Email"  class="form-control" placeholder="E-mail">
       @Html.ValidationMessageFor(x => x.Email)
     </div>
 
     <div class="form-group">
-        <input type="text" asp-for="Login"  class="form-control" placeholder="Digite o login do usuario">
+        <input type="text" asp-for="Login"  class="form-control" placeholder="Login">
       @Html.ValidationMessageFor(x => x.Login)
     </div>
-
-    <div class="custom-select">
-        <select asp-for="Perfil" class="custom-select">
-            <option value="">Selecione</option>
-            <option value="@PerfilEnum.Admin">Adiministrador</option>
-            <option value="@PerfilEnum.Padrao">Padrão</option>
-        </select>    
-          @Html.ValidationMessageFor(x => x.Perfil)
-
+    <div class="form-group">
+        <input type="password" asp-for="Senha"  class="form-control" placeholder="Senha">
+      @Html.ValidationMessageFor(x => x.Senha)
     </div>
 
-    <div class="form-group">
-        <input type="password" asp-for="Senha"  class="form-control" placeholder="Digite o senha do usuario">
-      @Html.ValidationMessageFor(x => x.Senha)
+	 <div class="custom-select">
+		 <select asp-for="Perfil" name="sources" id="sources" class="custom-select sources" placeholder="Perfil">
+            <option value="@PerfilEnum.Padrao">Padrão</option>
+            <option value="@PerfilEnum.Admin">Admin</option>            
+        </select>
+          @Html.ValidationMessageFor(x => x.Perfil)
+
     </div>
 			<button type="submit">Entrar</button>
 		</form>
@@ -55,7 +52,7 @@
 				
 			</div>
 			<span>Ou use sua conta</span>
-            <input type="text" asp-for="Login"  id="login" placeholder="Nome"> <!--Login-->
+            <input type="text" asp-for="Login"  id="login" placeholder="Login"> <!--Login-->
             @Html.ValidationMessageFor(x => x.Login)
 
             <input type="password" asp-for="Senha" id="senha" placeholder="Senha">
@@ -80,5 +77,6 @@
 	</div>
 </div>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/js/Login.js"></script>
 </body>

@@ -29,13 +29,24 @@ namespace Rich_text.Controllers
             UsuarioModel usuario = JsonConvert.DeserializeObject<UsuarioModel>(sessaoUsuario);
 
             dados.UsuarioId = usuario.Id;
+            usuario.Perfil = usuario.Perfil;
+
+            List<TextoModel> textos;
+            textos = _textoRepositorio.BucarPorUsuarioId(usuario.Id);
+
+            if (usuario.Perfil == 0)
+            {
+                textos = _textoRepositorio.BucarTodos();
+            }
+            else
+            {
+                textos = _textoRepositorio.BucarPorUsuarioId(usuario.Id);
+            }
 
 
 
-            List<TextoModel> textos = _textoRepositorio.BucarPorUsuarioId(usuario.Id);
 
 
-           
 
             return View(textos);
 

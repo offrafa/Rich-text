@@ -78,6 +78,8 @@ namespace Rich_text.Controllers
         [HttpPost]
         public IActionResult Criar(UsuarioModel usuario)
         {
+            usuario = _usuarioRepositorio.BucarTodos();
+
             try
             {
                 if(usuario.Email != usuario.Email)
@@ -85,7 +87,6 @@ namespace Rich_text.Controllers
                     if (ModelState.IsValid)
                     {
                         usuario = _usuarioRepositorio.Adicionar(usuario);
-
                         TempData["MensagemSucesso"] = "Usuário cadastrado com sucesso!";
                         return RedirectToAction("Index");
                     }
@@ -95,9 +96,7 @@ namespace Rich_text.Controllers
                     TempData["msg"] = "<script>alert('Usuário já cadastrado');</script>";
                     return RedirectToAction("Index");
 
-                }
-
-                
+                }               
                 return View(usuario);
             }
             catch (Exception erro)

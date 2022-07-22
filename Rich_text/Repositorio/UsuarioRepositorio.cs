@@ -63,6 +63,7 @@ namespace Rich_text.Repositorio
             return _context.Usuarios.ToList();
         }
 
+
         public UsuarioModel BuscarPorLogin(string login)
         {
             return _context.Usuarios.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
