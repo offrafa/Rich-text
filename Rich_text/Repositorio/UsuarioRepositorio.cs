@@ -58,6 +58,7 @@ namespace Rich_text.Repositorio
             return _context.Usuarios.FirstOrDefault(x => x.Id == id);
         }
 
+
         public List<UsuarioModel> BucarTodos()
         {
             return _context.Usuarios.ToList();
@@ -68,5 +69,7 @@ namespace Rich_text.Repositorio
         {
             return _context.Usuarios.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
         }
+
+        
     }
 }

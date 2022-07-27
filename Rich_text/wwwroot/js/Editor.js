@@ -1984,7 +1984,7 @@ function debug(method) {
       args[_key - 1] = arguments[_key];
     }
 
-    (_console = console)[method].apply(_console, args); // eslint-disable-line no-console
+   // (_console = console)[method].apply(_console, args); // eslint-disable-line no-console
   }
 }
 

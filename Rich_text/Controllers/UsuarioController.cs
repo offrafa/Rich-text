@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Rich_text.Models;
 using Rich_text.Repositorio;
 using System;
@@ -30,8 +32,10 @@ namespace Rich_text.Controllers
         [HttpPost]
         public IActionResult Criar(UsuarioModel usuario)
         {
+
             try
             {
+
                 if (ModelState.IsValid)
                 {
                     usuario = _usuarioRepositorio.Adicionar(usuario);

@@ -69,41 +69,5 @@ namespace Rich_text.Controllers
                 return RedirectToAction("Index");
             }
         }
-
-        public IActionResult Criar()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Criar(UsuarioModel usuario)
-        {
-            usuario = _usuarioRepositorio.BucarTodos();
-
-            try
-            {
-                if(usuario.Email != usuario.Email)
-                {
-                    if (ModelState.IsValid)
-                    {
-                        usuario = _usuarioRepositorio.Adicionar(usuario);
-                        TempData["MensagemSucesso"] = "Usuário cadastrado com sucesso!";
-                        return RedirectToAction("Index");
-                    }
-                }
-                else
-                {
-                    TempData["msg"] = "<script>alert('Usuário já cadastrado');</script>";
-                    return RedirectToAction("Index");
-
-                }               
-                return View(usuario);
-            }
-            catch (Exception erro)
-            {
-                TempData["MensagemErro"] = $"Ops, não conseguimos cadastrar o seu usuário, tente novamente, detalhe do erro: {erro.Message}";
-                return View(usuario);
-            }
-        }
     }
 }
