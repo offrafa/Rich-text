@@ -10,7 +10,7 @@ namespace Rich_text.Models
 
         public string Titulo { get; set; }
 
-        public string Descricacao { get; set; }
+        //public string Descricacao { get; set; }
 
         public string Documento { get; set; }
 

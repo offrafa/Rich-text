@@ -1,71 +1,61 @@
-﻿@model LoginModel
+﻿@model UsuarioModel
 
 @{
     Layout = "_LayoutDeslogado";
 }
 
+@Html.Raw(TempData["msg"])
 
 
 <body>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form asp-controller="Login" asp-action="Entrar" method="post">
+		<form  asp-controller="Login" asp-action="Criar" method="post">
 			<h1>Criar Conta</h1>
-			<div class="social-container">
-				<a href="#" class="social">
-                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#EA4335" d="M5.266 9.765A7.077 7.077 0 0 1 12 4.909c1.69 0 3.218.6 4.418 1.582L19.91 3C17.782 1.145 15.055 0 12 0 7.27 0 3.198 2.698 1.24 6.65l4.026 3.115Z"/>
-                        <path fill="#34A853" d="M16.04 18.013c-1.09.703-2.474 1.078-4.04 1.078a7.077 7.077 0 0 1-6.723-4.823l-4.04 3.067A11.965 11.965 0 0 0 12 24c2.933 0 5.735-1.043 7.834-3l-3.793-2.987Z"/>
-                        <path fill="#4A90E2" d="M19.834 21c2.195-2.048 3.62-5.096 3.62-9 0-.71-.109-1.473-.272-2.182H12v4.637h6.436c-.317 1.559-1.17 2.766-2.395 3.558L19.834 21Z"/>
-                        <path fill="#FBBC05" d="M5.277 14.268A7.12 7.12 0 0 1 4.909 12c0-.782.125-1.533.357-2.235L1.24 6.65A11.934 11.934 0 0 0 0 12c0 1.92.445 3.73 1.237 5.335l4.04-3.067Z"/>
-                    </svg>
-                </a>
-				<a href="#" class="social">
-                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#0077B5" fill-rule="evenodd" d="M20.452 20.45h-3.56v-5.57c0-1.328-.022-3.036-1.85-3.036-1.851 0-2.134 1.447-2.134 2.942v5.664H9.352V8.997h3.413v1.566h.049c.475-.9 1.636-1.85 3.367-1.85 3.605 0 4.27 2.371 4.27 5.456v6.281ZM5.339 7.433a2.063 2.063 0 1 1 0-4.13 2.065 2.065 0 0 1 0 4.13ZM7.12 20.45H3.558V8.997H7.12V20.45ZM23 0H1a1 1 0 0 0-1 1v22a1 1 0 0 0 1 1h22a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1Z"/>
-                    </svg>
-                </a>
-				<a href="#" class="social">
-                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#3B5998" fill-rule="evenodd" d="M23 0H1a1 1 0 0 0-1 1v22a1 1 0 0 0 1 1h11.75v-9h-3v-3.75h3v-3c0-3.1 1.963-4.625 4.728-4.625 1.324 0 2.463.099 2.794.142v3.24l-1.917.001c-1.504 0-1.855.715-1.855 1.763v2.479h3.75L19.5 15h-3l.06 9H23a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1"/>
-                    </svg>
-                </a>
-			</div>
-			<span>Ou use eu E-mail para se registrar</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			
+			<div class="form-group">
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Nome">
+        @Html.ValidationMessageFor(x => x.Nome)
+    </div>
+
+    <div class="form-group">
+      <input type="text" asp-for="Email"  class="form-control" placeholder="E-mail">
+      @Html.ValidationMessageFor(x => x.Email)
+    </div>
+
+    <div class="form-group">
+        <input type="text" asp-for="Login"  class="form-control" placeholder="Login">
+      @Html.ValidationMessageFor(x => x.Login)
+    </div>
+    <div class="form-group">
+        <input type="password" asp-for="Senha"  class="form-control" placeholder="Senha">
+      @Html.ValidationMessageFor(x => x.Senha)
+    </div>
+
+	 <div class="custom-select">
+		 <select asp-for="Perfil" name="sources" id="sources" class="custom-select sources" placeholder="Perfil">
+            <option value="@PerfilEnum.Padrao">Padrão</option>
+            <option value="@PerfilEnum.Admin">Admin</option>            
+        </select>
+          @Html.ValidationMessageFor(x => x.Perfil)
+
+    </div>
 			<button type="submit">Entrar</button>
 		</form>
 	</div>
+
+
 	<div class="form-container sign-in-container">
 		<form asp-controller="Login" asp-action="Entrar" method="post">
 			<h1>Login</h1>
 			<div class="social-container">
-				<a href="#" class="social">
-                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#EA4335" d="M5.266 9.765A7.077 7.077 0 0 1 12 4.909c1.69 0 3.218.6 4.418 1.582L19.91 3C17.782 1.145 15.055 0 12 0 7.27 0 3.198 2.698 1.24 6.65l4.026 3.115Z"/>
-                        <path fill="#34A853" d="M16.04 18.013c-1.09.703-2.474 1.078-4.04 1.078a7.077 7.077 0 0 1-6.723-4.823l-4.04 3.067A11.965 11.965 0 0 0 12 24c2.933 0 5.735-1.043 7.834-3l-3.793-2.987Z"/>
-                        <path fill="#4A90E2" d="M19.834 21c2.195-2.048 3.62-5.096 3.62-9 0-.71-.109-1.473-.272-2.182H12v4.637h6.436c-.317 1.559-1.17 2.766-2.395 3.558L19.834 21Z"/>
-                        <path fill="#FBBC05" d="M5.277 14.268A7.12 7.12 0 0 1 4.909 12c0-.782.125-1.533.357-2.235L1.24 6.65A11.934 11.934 0 0 0 0 12c0 1.92.445 3.73 1.237 5.335l4.04-3.067Z"/>
-                    </svg>
-                </a>
-				<a href="#" class="social">
-                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#0077B5" fill-rule="evenodd" d="M20.452 20.45h-3.56v-5.57c0-1.328-.022-3.036-1.85-3.036-1.851 0-2.134 1.447-2.134 2.942v5.664H9.352V8.997h3.413v1.566h.049c.475-.9 1.636-1.85 3.367-1.85 3.605 0 4.27 2.371 4.27 5.456v6.281ZM5.339 7.433a2.063 2.063 0 1 1 0-4.13 2.065 2.065 0 0 1 0 4.13ZM7.12 20.45H3.558V8.997H7.12V20.45ZM23 0H1a1 1 0 0 0-1 1v22a1 1 0 0 0 1 1h22a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1Z"/>
-                    </svg>
-                </a>
-				<a href="#" class="social">
-                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#3B5998" fill-rule="evenodd" d="M23 0H1a1 1 0 0 0-1 1v22a1 1 0 0 0 1 1h11.75v-9h-3v-3.75h3v-3c0-3.1 1.963-4.625 4.728-4.625 1.324 0 2.463.099 2.794.142v3.24l-1.917.001c-1.504 0-1.855.715-1.855 1.763v2.479h3.75L19.5 15h-3l.06 9H23a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1"/>
-                    </svg>
-                </a>
+				
 			</div>
 			<span>Ou use sua conta</span>
-            <input type="text" asp-for="Login"  id="login">
+            <input type="text" asp-for="Login"  id="login" placeholder="Login"> <!--Login-->
             @Html.ValidationMessageFor(x => x.Login)
 
-            <input type="password" asp-for="Senha" id="senha">
+            <input type="password" asp-for="Senha" id="senha" placeholder="Senha">
              @Html.ValidationMessageFor(x => x.Senha)
 			<a href="#">Esqueceu sua senha?</a>
 			<button type="submit">Entrar</button>
@@ -76,16 +66,17 @@
 			<div class="overlay-panel overlay-left">
 				<h1>Bem-Vindo(a)!</h1>
 				<p>Para se manter conectado conosco, faça login com suas informações pessoais</p>
-				<button class="ghost" id="signIn">Sign In</button>
+				<button class="ghost" id="signIn">Entrar</button>
 			</div>
 			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
+				<h1>Olá!</h1>
 				<p>Insira seus dados pessoais e comece a jornada conosco</p>
-				<button class="ghost" id="signUp">Login</button>
+				<button class="ghost" id="signUp">Novo Cadastro</button>
 			</div>
 		</div>
 	</div>
 </div>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/js/Login.js"></script>
 </body>

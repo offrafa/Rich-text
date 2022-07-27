@@ -9,7 +9,6 @@ namespace Rich_text.Repositorio
         UsuarioModel BuacarPorId(int id);
         UsuarioModel Adicionar(UsuarioModel usuario);
         UsuarioModel Atualizar(UsuarioModel usuario);
-
         bool Apagar(int id);
         UsuarioModel BuscarPorLogin(string login);
     }

@@ -18,8 +18,7 @@ namespace Rich_text.Controllers
             _sessao = sessao;
         }
 
-
-
+        
         public IActionResult Index()
         {
             if(_sessao.BuscarSessaoDoUsuario() != null) return RedirectToAction("Index", "Home");
