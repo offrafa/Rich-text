@@ -2,7 +2,6 @@
 
     <link rel="stylesheet" href="~/css/Editor.css" />
             <form asp-controller="Texto"  asp-action="Criar" method="post">      
-
         <div class="header">   
             <div>  <!-- Apenas a header que fica no topo -->
                   <ol class="opcao-top">
@@ -17,7 +16,6 @@
                         </li>             
                   </ol>
             </div>
-
              <div>
                 <button type="submit" class="button button--save" id="btn-convert" onclick="btn-convert()">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,22 +26,17 @@
                         Salvar
                   </button>
             </div>  
-        </div>
-        <div id="editor-container"></div>    
-        <input type="text" id="output-html" asp-for="Documento">
-        
+        </div>       
+        <div id="editor-container"></div>   
+      <textarea id="output-html" asp-for="Documento" style="display:none;"></textarea>      
     </form>
-    <script
-  src="https://code.jquery.com/jquery-3.6.0.js"
-  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="crossorigin="anonymous"></script>
     <script src="~/js/Editor.js"></script>
-
     <script>
      
     var quill = new Quill('#editor-container', {
-  modules: {
-    toolbar: [
+    modules: {
+        toolbar: [
     ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
     ['blockquote', 'code-block'],
 
@@ -89,10 +82,7 @@ function updateHtmlOutput()
     document.getElementById('output-html').innerText = html.toString();
     //updateHighlight();
 
-    
-$('#editor-containe').keyup(function(){
-    $('#output-html').val($(this).val());
-});
+
 }
 
 
