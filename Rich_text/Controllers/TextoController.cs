@@ -17,8 +17,8 @@ namespace Rich_text.Controllers
             _textoRepositorio = textoRepositorio;
         }
 
-
-
+        
+        
 
         public IActionResult Index(TextoModel dados)
         {
@@ -28,7 +28,6 @@ namespace Rich_text.Controllers
 
             UsuarioModel usuario = JsonConvert.DeserializeObject<UsuarioModel>(sessaoUsuario);
 
-<<<<<<< HEAD
             dados.UsuarioId = usuario.Id;
             usuario.Perfil = usuario.Perfil;
 
@@ -43,26 +42,16 @@ namespace Rich_text.Controllers
             {
                 textos = _textoRepositorio.BucarPorUsuarioId(usuario.Id);
             }
-=======
-
-            List<TextoModel> textos;
-            textos = _textoRepositorio.BucarPorUsuarioId(texto.Id);
->>>>>>> 9b361536d886b9256903c9a55102035de985625d
 
 
-            texto.UsuarioId = 
-                
-            {
-
-<<<<<<< HEAD
 
 
-=======
-            }
->>>>>>> 9b361536d886b9256903c9a55102035de985625d
+
 
             return View(textos);
+
         }
+
 
         public IActionResult Criar()
         {
@@ -92,11 +81,7 @@ namespace Rich_text.Controllers
 
                     dados = _textoRepositorio.Adicionar(dados);
 
-                    if(dados.Id == 1)
-                    {
-                        return RedirectToAction("https://localhost:5001/Texto?id=1");
-
-                    }
+                    
 
 
 
