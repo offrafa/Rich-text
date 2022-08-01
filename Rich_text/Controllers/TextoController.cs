@@ -5,6 +5,8 @@ using Rich_text.Models;
 using Rich_text.Repositorio;
 using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Mail;
 
 namespace Rich_text.Controllers
 {
@@ -199,6 +201,53 @@ namespace Rich_text.Controllers
         }
 
 
-        
+        [HttpPost]
+        public ActionResult EnviaEmail()
+        {
+            string emailDestinatario = Request.Form["txtEmail"];
+            SendMail(emailDestinatario);
+            return View();
+        }
+
+        public bool SendMail(string email)
+        {
+            try
+            {
+                // Estancia da Classe de Mensagem
+                MailMessage _mailMessage = new MailMessage();
+                // Remetente
+                _mailMessage.From = new MailAddress("rafaeltavares462@gmail.com");
+
+                // Destinatario seta no metodo abaixo
+
+                //Contrói o MailMessage
+                _mailMessage.CC.Add(email);
+                _mailMessage.Subject = "Teste Thiago";
+                _mailMessage.IsBodyHtml = true;
+                _mailMessage.Body = "<b>Olá Tudo bem ??</b><p>Teste Parágrafo</p>";
+
+                //CONFIGURAÇÃO COM PORTA
+                SmtpClient _smtpClient = new SmtpClient("smtp.gmail.com", Convert.ToInt32("587"));
+
+                //CONFIGURAÇÃO SEM PORTA
+                // SmtpClient _smtpClient = new SmtpClient(UtilRsource.ConfigSmtp);
+
+                // Credencial para envio por SMTP Seguro (Quando o servidor exige autenticação)
+                _smtpClient.UseDefaultCredentials = false;
+                _smtpClient.Credentials = new NetworkCredential("rafaeltavares462@gmail.com", "rafaeltavares");
+
+                _smtpClient.EnableSsl = true;
+
+                _smtpClient.Send(_mailMessage);
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }
